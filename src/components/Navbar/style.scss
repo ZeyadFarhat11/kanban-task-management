@@ -1,0 +1,134 @@
+@use "../../components.scss" as *;
+
+#navbar {
+  background-color: $white;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  color: $dark-text;
+  position: relative;
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: $dark-text;
+    font-size: 22px;
+    width: $sidebar-width;
+    cursor: default;
+    h2 {
+      text-transform: lowercase;
+    }
+    @include tablet {
+      width: fit-content;
+      margin-right: 20px;
+      h2 {
+        display: none;
+      }
+    }
+  }
+  .current-board {
+    margin-right: auto;
+    .toggle-sidebar {
+      display: none;
+      color: $dark-text;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      font-size: 22px;
+    }
+    @include tablet {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 20px;
+      .toggle-sidebar {
+        display: block;
+      }
+    }
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    @include tablet {
+      span {
+        display: none;
+      }
+    }
+    @include mobile {
+      padding: 10px 15px;
+      margin-left: 10px;
+    }
+  }
+  .toggle-menu {
+    all: unset;
+    font-size: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+    line-height: 1;
+    @include mobile {
+      margin-left: 10px;
+    }
+  }
+  .submenu {
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 150px;
+    box-shadow: 0 00px 20px rgb(54 78 126 / 40%);
+    display: none;
+    &.active {
+      display: block;
+    }
+    button,
+    a {
+      display: block;
+      padding: 15px;
+      color: $gray;
+      background-color: #fff;
+      border: none;
+      outline: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      font-size: 14px;
+      &:hover {
+        padding-left: 20px;
+        background-color: #eee;
+      }
+      &.delete {
+        color: red;
+      }
+    }
+  }
+}
+
+.dark {
+  #navbar {
+    background-color: $light-dark;
+    color: $white;
+    .toggle-sidebar {
+      color: $white;
+    }
+    .submenu {
+      background-color: $dark;
+      button {
+        background-color: $dark;
+      }
+    }
+    .logo {
+      color: $white;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@use "../../components.scss" as *;
+
+.confirm {
+  .title {
+    color: $red;
+  }
+  .msg {
+    line-height: 2;
+    font-size: 14px;
+    color: $gray;
+    margin: 20px 0;
+  }
+  .btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    .delete {
+      color: #fff;
+      background-color: $red;
+      &:hover {
+        background-color: rgba(234, 85, 85, 0.5);
+      }
+    }
+    button {
+      padding: 10px;
+      flex-grow: 1;
+      border-radius: 100px;
+      font-size: 14px;
+      color: $main;
+      background-color: rgb(99, 95, 199, 0.2);
+      font-weight: bold;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .cancel {
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+@use "../../components.scss" as *;
+
+.board {
+  overflow: auto;
+  height: calc(100vh - 80px);
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+  background-color: $light-blue;
+  .column {
+    min-width: 280px;
+    .column-title {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: $gray;
+    }
+    .task {
+      border-radius: 10px;
+      padding: 20px;
+      background-color: $white;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgb(54 78 126 / 10%);
+      cursor: pointer;
+      h3 {
+        color: #000;
+        font-size: 16px;
+        text-transform: none;
+      }
+      span {
+        font-size: 13px;
+        margin-top: 15px;
+        display: block;
+        text-transform: lowercase;
+        font-weight: bold;
+        color: $gray;
+      }
+      &:hover {
+        h3 {
+          color: $main !important;
+        }
+      }
+    }
+  }
+  .add-new {
+    background-color: #e9effd;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+      span {
+        color: $main !important;
+      }
+    }
+    span {
+      font-size: 25px;
+      color: $gray;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: bold;
+      svg {
+        width: 15px;
+      }
+    }
+  }
+}
+
+.dark .board {
+  background-color: $dark;
+  .column {
+    .task {
+      background-color: $light-dark;
+      h3 {
+        color: $white;
+      }
+      span {
+        color: $gray;
+      }
+    }
+  }
+  .add-new {
+    background-color: rgba(255, 255, 255, 0.05);
+    span {
+      color: #fff;
+    }
+  }
+}
+
+.dark {
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: $light-dark;
+  }
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $main;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #373399;
+}
+::-webkit-scrollbar-corner {
+  display: none;
+}
+
+@include tablet {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}

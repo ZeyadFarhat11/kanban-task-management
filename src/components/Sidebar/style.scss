@@ -1,0 +1,122 @@
+@use "../../components.scss" as *;
+.sidebar {
+  background-color: $white;
+  height: calc(100vh - 80px);
+  padding: 20px 0;
+  color: $gray;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr auto;
+  display: grid;
+  .dropdown-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    @include tablet {
+      position: fixed;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 20px 0;
+      border-radius: 10px;
+      width: 90vw;
+      display: none;
+      z-index: 25;
+      &.active {
+        display: block;
+      }
+      .switch-mode {
+        margin-top: 20px;
+      }
+    }
+  }
+  .boards-count {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+  }
+  .sidebar-board,
+  button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    color: $gray;
+    text-decoration: none;
+    padding: 15px 20px;
+    width: calc(100% - 20px);
+    border-radius: 0 200px 200px 0;
+    transition: 0.3s;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: transparent;
+    &.active {
+      color: #fff;
+      background-color: $main;
+    }
+    &:not(.active):hover {
+      color: $main;
+      background-color: $light-blue;
+    }
+  }
+  .create {
+    color: $main;
+    gap: 0;
+    svg:nth-child(2) {
+      margin-left: 10px;
+    }
+  }
+  .switch-mode {
+    margin: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $light-blue;
+    padding: 20px;
+    border-radius: 5px;
+    label {
+      width: 40px;
+      height: 20px;
+      border-radius: 80px;
+      background-color: $main;
+      position: relative;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        background-color: $main-light;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 3px;
+        background-color: #fff;
+        // left: 0;
+        border-radius: 50%;
+        width: 16px;
+        transition: 0.3s;
+      }
+      &.dark::before {
+        left: calc(100% - 19px);
+      }
+    }
+  }
+}
+
+.dark {
+  .sidebar {
+    background-color: $light-dark;
+    .dropdown-container {
+      background-color: $light-dark;
+    }
+    .switch-mode {
+      background-color: $dark;
+      label::before {
+        left: calc(100% - 19px);
+      }
+    }
+  }
+}

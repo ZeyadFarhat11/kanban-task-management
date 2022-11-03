@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# Kenban Task Management
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Dependencies
+
+- firebase
+- react-icons
+- react-router-dom
+- sass
+
+## Demo [click here](https://kanban-tasks-management.web.app)
 
 ## Available Scripts
 

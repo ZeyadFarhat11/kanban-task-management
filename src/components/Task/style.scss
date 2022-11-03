@@ -1,0 +1,111 @@
+@use "../../components.scss" as *;
+
+.task-info {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: $dark;
+      font-size: 25px;
+      cursor: pointer;
+    }
+    .submenu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 150px;
+      box-shadow: 0 10px 20px rgb(54 78 126 / 25%);
+      display: none;
+      &.active {
+        display: block;
+      }
+      button,
+      a {
+        display: block;
+        padding: 15px;
+        color: $gray;
+        background-color: #fff;
+        border: none;
+        outline: none;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+        transition: 0.3s;
+        text-decoration: none;
+        font-size: 14px;
+        &:hover {
+          padding-left: 20px;
+          background-color: #eee;
+        }
+        &.delete {
+          color: red;
+        }
+      }
+    }
+  }
+  .description {
+    color: $gray;
+    font-size: 14px;
+    margin: 20px 0;
+  }
+  .input-group {
+    .label {
+      text-transform: none;
+    }
+    .subtask {
+      background-color: $light-blue;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 15px 20px;
+      input {
+        width: 16px;
+        height: 16px;
+        accent-color: $main;
+        cursor: pointer;
+      }
+      p {
+        padding-left: 20px;
+        font-weight: bold;
+        font-size: 14px;
+        text-transform: none;
+        &.done {
+          color: $gray;
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+}
+
+.dark {
+  .task-info {
+    header {
+      button {
+        color: #fff;
+      }
+      .submenu {
+        background-color: $dark;
+        button {
+          background-color: $dark;
+        }
+      }
+    }
+    .subtask {
+      background-color: $dark;
+      p {
+        color: #fff;
+      }
+    }
+  }
+}

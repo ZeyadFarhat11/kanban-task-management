@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
+
+$light-dark: #2b2c37;
+$dark: #20212c;
+$gray: #828fa3;
+$main: #635fc7;
+$main-light: #a8a4ff;
+$white: #fff;
+$light-blue: #f4f7fd;
+$dark-text: #000112;
+$sidebar-width: 270px;
+$red: #ea5555;
+
+@mixin laptop {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: 420px) {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+*:not(input, textarea) {
+  text-transform: capitalize;
+}
+.btn {
+  color: #fff;
+  background-color: $main;
+  border-radius: 500px;
+  padding: 15px 20px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    background-color: $main-light;
+  }
+}
+
+.main-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  background-color: $white;
+  padding: 40px;
+  border-radius: 10px;
+  width: 500px;
+  max-width: calc(100% - 30px);
+  h3 {
+    text-transform: none;
+  }
+  .input-group {
+    margin-top: 20px;
+    .label {
+      color: $gray;
+      font-weight: bold;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 5px;
+    }
+    input,
+    textarea,
+    select {
+      padding: 10px;
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      width: 100%;
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.2);
+      }
+      &:not(select):focus {
+        border-color: $main;
+      }
+      &.error {
+        border-color: #dc3545;
+      }
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    select {
+      cursor: pointer;
+    }
+    .input-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      .tools {
+        display: flex;
+        gap: 5px;
+        button {
+          font-size: 25px;
+          background-color: transparent;
+          border: none;
+          outline: none;
+          color: $gray;
+          cursor: pointer;
+          &:hover {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+  .btn {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 14px;
+    padding: 10px;
+  }
+  @include tablet {
+    padding: 30px 20px;
+    .label {
+      font-size: 12px !important;
+    }
+    .tools {
+      button {
+        font-size: 20px !important;
+      }
+    }
+    .btn {
+      font-size: 12px !important;
+    }
+    .subtask {
+      p {
+        font-size: 12px !important;
+      }
+    }
+  }
+}
+
+.dark .main-form {
+  background-color: $light-dark;
+  h3 {
+    color: #fff;
+  }
+  // .label {
+  //   color: #fff !important;
+  // }
+  input,
+  textarea,
+  select {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.2);
+    }
+  }
+  select {
+    color: #fff;
+    background-color: transparent;
+    option {
+      color: #fff;
+      background-color: $dark;
+    }
+  }
+  .btn.dark-white {
+    background-color: $white;
+    color: $main;
+  }
+  .tools button {
+    &:hover {
+      color: #fff !important;
+    }
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 15;
+}

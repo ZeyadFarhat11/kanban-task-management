@@ -1,10 +1,12 @@
+import React from "react";
 import "./components.scss";
-import AppProvider from "./context";
+import { useGlobalContext } from "./context";
+import Home from "./pages/Home/Home";
 
 function App() {
   return (
     <>
-      <AppProvider></AppProvider>
+      <Home />
     </>
   );
 }
