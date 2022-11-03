@@ -4,10 +4,9 @@
 
 - firebase
 - react-icons
-- react-router-dom
 - sass
 
-## Demo [click here](https://kanban-tasks-management.web.app)
+## Demo [click here](https://react-kanban-task-management.netlify.app/)
 
 ## Available Scripts
 
